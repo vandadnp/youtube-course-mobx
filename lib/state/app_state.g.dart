@@ -47,21 +47,6 @@ mixin _$AppState on _AppState, Store {
     });
   }
 
-  final _$currentUserAtom = Atom(name: '_AppState.currentUser');
-
-  @override
-  User? get currentUser {
-    _$currentUserAtom.reportRead();
-    return super.currentUser;
-  }
-
-  @override
-  set currentUser(User? value) {
-    _$currentUserAtom.reportWrite(value, super.currentUser, () {
-      super.currentUser = value;
-    });
-  }
-
   final _$authErrorAtom = Atom(name: '_AppState.authError');
 
   @override
@@ -113,12 +98,13 @@ mixin _$AppState on _AppState, Store {
     return _$createReminderAsyncAction.run(() => super.createReminder(text));
   }
 
-  final _$modifyAsyncAction = AsyncAction('_AppState.modify');
+  final _$modifyReminderAsyncAction = AsyncAction('_AppState.modifyReminder');
 
   @override
-  Future<bool> modify(Reminder reminder, {required bool isDone}) {
-    return _$modifyAsyncAction
-        .run(() => super.modify(reminder, isDone: isDone));
+  Future<bool> modifyReminder(
+      {required String reminderId, required bool isDone}) {
+    return _$modifyReminderAsyncAction.run(
+        () => super.modifyReminder(reminderId: reminderId, isDone: isDone));
   }
 
   final _$initializeAsyncAction = AsyncAction('_AppState.initialize');
@@ -187,7 +173,6 @@ mixin _$AppState on _AppState, Store {
     return '''
 currentScreen: ${currentScreen},
 isLoading: ${isLoading},
-currentUser: ${currentUser},
 authError: ${authError},
 reminders: ${reminders},
 sortedReminders: ${sortedReminders}
