@@ -356,12 +356,19 @@ PODS:
   - Firebase/Firestore (8.14.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.14.0)
+  - Firebase/Storage (8.14.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.14.0)
   - firebase_auth (3.3.14):
     - Firebase/Auth (= 8.14.0)
     - firebase_core
     - Flutter
   - firebase_core (1.14.1):
     - Firebase/CoreOnly (= 8.14.0)
+    - Flutter
+  - firebase_storage (10.2.12):
+    - Firebase/Storage (= 8.14.0)
+    - firebase_core
     - Flutter
   - FirebaseAuth (8.14.0):
     - FirebaseCore (~> 8.0)
@@ -390,6 +397,9 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
+  - FirebaseStorage (8.14.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - Flutter (1.0.0)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
@@ -435,6 +445,8 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.1)
+  - image_picker_ios (0.0.1):
+    - Flutter
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -447,7 +459,9 @@ DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
 
 SPEC REPOS:
   trunk:
@@ -458,6 +472,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
+    - FirebaseStorage
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -474,8 +489,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_storage:
+    :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: Flutter
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -484,16 +503,19 @@ SPEC CHECKSUMS:
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   firebase_auth: db3557d178b86a0d2ccdb7a878a1d1c2fe70de4e
   firebase_core: cdef02fcf55872191eb0568d4c31a7a700e38582
+  firebase_storage: 4a9711df9392778a9f8641d5ce4cb7a228c0472c
   FirebaseAuth: c5fde343630090253d3af7e2d35697b414b40202
   FirebaseCore: b84a44ee7ba999e0f9f76d198a9c7f60a797b848
   FirebaseCoreDiagnostics: fd0c8490f34287229c1d6c103d3a55f81ec85712
   FirebaseFirestore: fff37682b934e3e94d83e5c24936721890a2edf0
+  FirebaseStorage: 32ab036ce11eb7e94c279a238a65efa24f81593d
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
+  image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72

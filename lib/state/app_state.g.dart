@@ -84,6 +84,13 @@ mixin _$AppState on _AppState, Store {
     return _$deleteAsyncAction.run(() => super.delete(reminder));
   }
 
+  final _$deleteAccountAsyncAction = AsyncAction('_AppState.deleteAccount');
+
+  @override
+  Future<bool> deleteAccount() {
+    return _$deleteAccountAsyncAction.run(() => super.deleteAccount());
+  }
+
   final _$logOutAsyncAction = AsyncAction('_AppState.logOut');
 
   @override
@@ -131,6 +138,15 @@ mixin _$AppState on _AppState, Store {
       required String password}) {
     return _$_registerOrLoginAsyncAction.run(
         () => super._registerOrLogin(fn: fn, email: email, password: password));
+  }
+
+  final _$uploadAsyncAction = AsyncAction('_AppState.upload');
+
+  @override
+  Future<bool> upload(
+      {required String filePath, required String forReminderId}) {
+    return _$uploadAsyncAction.run(
+        () => super.upload(filePath: filePath, forReminderId: forReminderId));
   }
 
   final _$_AppStateActionController = ActionController(name: '_AppState');
